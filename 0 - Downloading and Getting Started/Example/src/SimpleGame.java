@@ -27,7 +27,7 @@ public class SimpleGame extends BasicGame{
 	@Override
 	public void update(GameContainer container, int delta) throws SlickException {
 		// TODO Auto-generated method stub
-		
+		float ds = delta / 1000f;
 	}
 
 }
