@@ -28,10 +28,6 @@ public class Box {
 		this.remove = remove;
 	}
 	
-	public void setColor(Color color) {
-		this.color = color;
-	}
-	
 	public boolean colliding(Shape other) {
 		return bounds.intersects(other) || bounds.contains(other) || other.contains(bounds);
 	}
@@ -48,12 +44,16 @@ public class Box {
 		// leave empty for other methods to override
 	}
 	
+	// set the sound that will be played when playSound() is called
 	public void setSound(Sound sound) {
 		this.sound = sound;
 	}
 	
 	public void playSound() {
-		if(sound!=null)
+		// check if the sound is null
+		// if not null check if the sound is already playing
+		// then play sound
+		if(sound!=null && !sound.playing())
 			sound.play();
 	}
 	
@@ -62,6 +62,8 @@ public class Box {
 		g.fill(bounds);
 	}
 	
+	// if this box should be removed when colliding with Ball
+	// by default is set to false
 	public boolean shouldRemove() {
 		return remove;
 	}
